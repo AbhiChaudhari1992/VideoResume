@@ -14,12 +14,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mysql.jdbc.PreparedStatement;
+
 /**
  * Servlet implementation class login
  */
-@WebServlet("/loginJobSeeker")
+@WebServlet("/signUpJobSeeker")
 
-public class loginJobSeeker extends HttpServlet {
+public class signUpJobSeeker extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	//private static final long serialVersionUID = 1L;
 	public String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
@@ -29,7 +31,7 @@ public class loginJobSeeker extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public loginJobSeeker() {
+    public signUpJobSeeker(){
         super();
         // TODO Auto-generated constructor stub
     }
@@ -50,11 +52,10 @@ public class loginJobSeeker extends HttpServlet {
 	         String sql;
 	         System.out.println("hello");
 	         System.out.println();
-	         sql = "select * from jobseeker where username='"+request.getParameter("Username")+"' AND password='"+request.getParameter("Password")+"'";
+	         sql = "select * from jobseeker where username='"+request.getParameter("username")+"' AND password='"+request.getParameter("Password")+"'";
 	         System.out.println(sql);
 	        rs = stmt.executeQuery(sql);
 	        System.out.println(rs.getString("username"));
-	        request.getSession().setAttribute("fname",rs.getString("username"));
 	      /*  System.out.println(rs);
 	        System.out.println(rs.first());*/
 	        //System.out.println(rs.getString(0));
@@ -66,13 +67,31 @@ public class loginJobSeeker extends HttpServlet {
 	      }
 		try {
 			if(rs.next()) {
-				request.setAttribute("username", rs.getString("username"));
-				 request.getRequestDispatcher("jobSeeker.jsp").forward(request, response);
+				System.out.println("User already exists");
+				 request.getRequestDispatcher("userexists.jsp").include(request, response);
 			}else
 			{
-				response.sendRedirect("failure.jsp");
+				
+				 Class.forName("com.mysql.jdbc.Driver");
+		         conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		       //  stmt = conn.createStatement();
+		         
+		         
+		         String sql1 = "insert into jobseeker(fname, lname, email, phone, username,address,password) values (?,?,?,?,?,?,?)";
+		         PreparedStatement st = (PreparedStatement) conn.prepareStatement(sql1);
+		         st.setString(1, request.getParameter("firstName"));
+		         st.setString(2, request.getParameter("lastName"));
+		         st.setString(3, request.getParameter("personalEmail"));
+		         st.setString(4, request.getParameter("phoneNumber"));
+		         st.setString(5, request.getParameter("username"));
+		         st.setString(6, request.getParameter("address"));
+		         st.setString(7, request.getParameter("lastName"));
+		         System.out.println("Before insert");
+		         st.executeUpdate();
+		         System.out.println("After insert");
+		         request.getRequestDispatcher("registeredsuccess.jsp").include(request, response);
 			}
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {

@@ -44,6 +44,10 @@
 							<b>Login</b>
 						</button>
 						
+						<div style="padding-top: 15px; font-size: 85%">
+							Job seeker with no account? <a href="registerJobSeeker.jsp">SignUp</a>
+						</div>
+						
 					</form>
 				</div>
 			</div>
@@ -52,8 +56,6 @@
 		
 
 				</div>
-			</div>
-		</div>
-	</div>
+	
 </body>
 </html>

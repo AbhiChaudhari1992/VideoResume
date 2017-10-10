@@ -16,7 +16,7 @@
 </head>
 
 <body>
-   
+                    <p="red">User already exists</p>
 					<form action="signUpJobSeeker" method="post">
 					<div class="form-group">
 							<label for="exampleInputEmail1">Username</label> <input

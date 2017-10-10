@@ -1,3 +1,7 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -29,6 +33,9 @@
                 <span class="label label-info">Python</span>
                 <span class="label label-default">Java</span>
                 <span class="label label-success">jQuery</span>
+                <button id='search' type="submit"
+								class="btn btn-primary search-button">Add</button>
+                
 				<br>
 			</div>
 			<div class="col-sm-2">
@@ -64,18 +71,36 @@
 			<!-- Edit Profile Tab -->
 				<div class="tab-pane active" id="profile" role="tabpanel">
 					<form>
+					<%  Class.forName("com.mysql.jdbc.Driver");
+					 String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+					 String DB_URL="jdbc:mysql://localhost:3306/mydb";
+					 String USER = "root";
+					 String PASS = "root";
+	        Connection conn =  DriverManager.getConnection(DB_URL, USER, PASS);
+	        
+	        Statement stmt =  conn.createStatement();
+	         String sql;
+	         System.out.println("hello");
+	         System.out.println();
+	        // sql = "select * from jobseeker where username='"+request.getParameter("Username")+"' AND password='"+request.getParameter("Password")+"'";
+	       String username= (String)request.getAttribute("username");
+	       out.print("username is "+username);
+	       sql = "select * from jobseeker where username='"+username+"'";
+	        ResultSet rs =  stmt.executeQuery(sql); 
+	         
+	         %>
 					<div class="col-sm-6">
 					    <div class="form-group">
 							<label for="exampleInputEmail1">Username</label> <input
 								type="text" class="form-control" name="username" id="username"
-								placeholder="Enter Username" required="required">
+								placeholder=<%= username%> required="required">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">First Name</label> <input
 								type="text" class="form-control" name="firstName" id="firstName"
 								placeholder="Enter First Name" required="required">
 						</div>
-
+						
 						<div class="form-group">
 							<label for="exampleInputEmail1">Last Name</label> <input
 								type="text" class="form-control" name="lastName" id="lastName"
