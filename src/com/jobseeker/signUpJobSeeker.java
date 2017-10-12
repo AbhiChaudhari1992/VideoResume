@@ -52,10 +52,11 @@ public class signUpJobSeeker extends HttpServlet {
 	         String sql;
 	         System.out.println("hello");
 	         System.out.println();
-	         sql = "select * from jobseeker where username='"+request.getParameter("username")+"' AND password='"+request.getParameter("Password")+"'";
+	         sql = "select * from jobseeker where username='"+request.getParameter("username")+"'";
 	         System.out.println(sql);
 	        rs = stmt.executeQuery(sql);
 	        System.out.println(rs.getString("username"));
+	        System.out.println("we are here before insert and userexists");
 	      /*  System.out.println(rs);
 	        System.out.println(rs.first());*/
 	        //System.out.println(rs.getString(0));
@@ -67,11 +68,11 @@ public class signUpJobSeeker extends HttpServlet {
 	      }
 		try {
 			if(rs.next()) {
-				System.out.println("User already exists");
+				System.out.println("User already exists. we are here");
 				 request.getRequestDispatcher("userexists.jsp").include(request, response);
 			}else
 			{
-				
+				System.out.println("user not exists");
 				 Class.forName("com.mysql.jdbc.Driver");
 		         conn = DriverManager.getConnection(DB_URL, USER, PASS);
 		       //  stmt = conn.createStatement();

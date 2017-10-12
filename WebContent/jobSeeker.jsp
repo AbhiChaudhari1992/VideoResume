@@ -22,10 +22,12 @@
 		<div class="row">
 			<div class="col-sm-10">
 				<h1 class="">Welcome</h1>
-				<h4 class="media-heading">John Doe <small> USA</small></h4>
+				<h4 class="media-heading">Abhi <small> USA</small></h4>
                 <h5>Software Developer at <a href="http://google.com">Google</a></h5>
                 <hr style="margin:8px auto">
 				<div class="skills">
+				<button id='logout' type="submit"
+								class="btn btn-primary search-button">logout</button>
 				
 				</div>
                 <span class="label label-default">HTML5/CSS3</span>
@@ -84,9 +86,16 @@
 	         System.out.println();
 	        // sql = "select * from jobseeker where username='"+request.getParameter("Username")+"' AND password='"+request.getParameter("Password")+"'";
 	       String username= (String)request.getAttribute("username");
-	       out.print("username is "+username);
+	       //out.print("username is "+username);
 	       sql = "select * from jobseeker where username='"+username+"'";
 	        ResultSet rs =  stmt.executeQuery(sql); 
+	       rs.next();
+	       String fname = rs.getString("fname");
+	       String lname = rs.getString("lname");
+	       String address = rs.getString("address");
+	       String email = rs.getString("email");
+	       int phone = rs.getInt("phone");
+	       
 	         
 	         %>
 					<div class="col-sm-6">
@@ -98,65 +107,48 @@
 						<div class="form-group">
 							<label for="exampleInputEmail1">First Name</label> <input
 								type="text" class="form-control" name="firstName" id="firstName"
-								placeholder="Enter First Name" required="required">
+								placeholder=<%=fname%> required="required">
 						</div>
 						
 						<div class="form-group">
 							<label for="exampleInputEmail1">Last Name</label> <input
 								type="text" class="form-control" name="lastName" id="lastName"
-								placeholder="Enter Last Name" required="required">
-						</div>
-                        <div class="form-group">
-							<label for="exampleInputEmail1">Job Seeker Id</label> <input
-								type="text" class="form-control" name="jid" id="jid"
-								placeholder="Enter Job seeker id" required="required">
+								placeholder=<%=lname%> required="required">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Address</label> <input
 								type="text" class="form-control" name="address" id="address"
-								placeholder="Enter Address" required="required">
+								placeholder=<%=address%> required="required">
 						</div>
 					</div>
 					<div class="col-sm-6">
 					<div class="form-group">
 							<label for="exampleInputEmail1">Phone Number</label> <input
 								type="number" class="form-control" name="phoneNumber"
-								id="phoneNumber" placeholder="Enter Phone Number"
+								id="phoneNumber" placeholder=<%=phone%>
 								required="required">
 						</div>
 
 						<div class="form-group">
 							<label for="exampleInputEmail1">Personal Email</label> <input
 								type="text" class="form-control" name="personalEmail"
-								id="personalEmail" placeholder="Personal Email Address"
+								id="personalEmail" placeholder=<%=email%>
 								required="required">
 						</div>
 						
 						<div class="form-group">
 							<label for="exampleInputEmail1">Alternate Email</label> <input
 								type="text" class="form-control" name="alternateEmail"
-								id="alternateEmail" placeholder="Alternate Email Address"
+								id="alternateEmail" placeholder="abc@gmail.com"
 								required="required">
 						</div>
-						
-						<div class="form-group">
-							<label for="exampleInputEmail1">Skype ID</label> <input
-								type="text" class="form-control" name="skypeID"
-								id="skypeID" placeholder="Skype ID"
-								required="required">
-						</div>
-
-						<div class="form-group">
-							<label for="exampleInputEmail1">Username</label> <input
-								type="text" class="form-control" name="Username" id="Username"
-								placeholder="Enter Username" required="required">
-						</div>
-
-						<div class="form-group">
-							<label for="exampleInputPassword1">Password</label> <input
-								type="password" class="form-control" name="Password"
-								id="Password" placeholder="Enter Password" required="required">
-						</div>
+						<p align="center">
+                        <button type="submit" style="width: 30%; font-size: 1.1em;"
+                         class="btn btn-large btn btn-success btn-lg btn-block">
+                            <b>Edit</b>
+                        
+                        </button>
+                        </p>
 					</div>
 					</form><br></br><br></br>
 <!-- 					    <div class="panel panel-default">

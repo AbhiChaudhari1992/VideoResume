@@ -10,7 +10,7 @@
 
 <body background="http://www.destinyman.com/wp-content/uploads/2016/12/Black-man-office-coffee_690x450_crop_80.jpg" style="background-size: cover;background-repeat: no-repeat;">
 <div class="container">
-<h><a href="admin"> Admin</a>
+<h><a href="admin.jsp"> Admin</a>
 </h>
 	<form>
 	<div class="row">
@@ -18,7 +18,7 @@
 	</div>
 	<div class="col-md-6">
 		<div class="form-group">
-			<a href="login.jsp">
+			<a href="loginemp.jsp">
 			<div class="btn btn-primary form-control" style="height:150px;font-size:50px;text-align:center;line-height: 150px;background: rgba(0,0,255,0.4);">
 				Employer
 			</div>

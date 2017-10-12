@@ -14,9 +14,8 @@
 <script	
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-
 <body>
-   
+    <div class=“container” style="width:50%; height:50%" align="left";>
 					<form action="signUpJobSeeker" method="post">
 					<div class="form-group">
 							<label for="exampleInputEmail1">Username</label> <input
@@ -67,6 +66,6 @@
 
 				
 					</form>
-			
+			</div>
 </body>
 </html>
