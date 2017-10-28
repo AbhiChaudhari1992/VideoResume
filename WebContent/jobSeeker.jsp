@@ -77,7 +77,7 @@
 					 String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 					 String DB_URL="jdbc:mysql://localhost:3306/mydb";
 					 String USER = "root";
-					 String PASS = "root";
+					 String PASS = "password";
 	        Connection conn =  DriverManager.getConnection(DB_URL, USER, PASS);
 	        
 	        Statement stmt =  conn.createStatement();
@@ -214,12 +214,11 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">Upload Resumes</div>
 						<div class="panel-body">
-								<form method="post" action="uploadFile"	enctype="multipart/form-data">
+								<form method="post" action="FileUploadServlet"	enctype="multipart/form-data">
 									Select file to upload: <input type="file" class="btn btn-default" name="uploadFile" />
 									<br />
 									<br /> <input type="submit" class="btn btn-default" value="Upload" />
 								</form>
-								<a href="VideoResume/Upload/resume.pdf">Uploaded Resume</a>
 						</div>
 					</div>
 				</div>
