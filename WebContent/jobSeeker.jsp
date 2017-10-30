@@ -22,9 +22,13 @@
 		<div class="row">
 			<div class="col-sm-10">
 				<h1 class="">Welcome</h1>
-				<h4 class="media-heading">Abhi <small> USA</small></h4>
-                <h5>Software Developer at <a href="http://google.com">Google</a></h5>
-                <hr style="margin:8px auto">
+				<h4 class="media-heading">
+					Abhi <small> USA</small>
+				</h4>
+				<h5>
+					Software Developer at <a href="http://google.com">Google</a>
+				</h5>
+				<hr style="margin: 8px auto">
 				<div class="skills"></div>
 				<div class="row">
 					<span class="label label-default">HTML5/CSS3</span> <span
@@ -37,72 +41,77 @@
 			<div class="col-sm-2">
 				<a href="#" class="pull-right"><img title="profile image"
 					class="img-circle img-responsive"
-					src="https://organicthemes.com/demo/profile/files/2012/12/profile_img.png"></a>
-				<span class="glyphicon glyphicon-camera"></span> <span>Update
-						Image</span>
+					src="https://organicthemes.com/demo/profile/files/2012/12/profile_img.png"
+					alt=""></a> <span class="glyphicon glyphicon-camera"></span> <span>Update
+					Image</span>
 			</div>
 		</div>
-		<br><div class = "row">
-		<div class="col-sm-3">
-			<ul class="nav nav-pills nav-stacked" role="tablist">
-				<li class="nav-item active"><a class="nav-link" data-toggle="pill"
-					href="#profile" role="tab">Profile</a></li>
-				<li class="nav-item"><a class="nav-link"
-					data-toggle="pill" href="#search" role="tab">Search Jobs</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="pill"
-					href="#resumes" role="tab">Resumes</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="pill"
-					href="#savedJobs" role="tab">Saved Jobs <span class="badge">5</span></a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="pill"
-					href="#appliedJobs" role="tab">Applied Jobs <span class="badge">2</span></a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="pill"
-					href="#settings" role="tab">Settings</a></li>
-				<li class="nav-item"><a class="nav-link" href="index.jsp" role="tab"> Logout </a></li>
-			</ul>
-		</div>
-		<div class="col-sm-8">
-			<!-- Tab panes -->
-			<div class="tab-content">
-			
-			<!-- Edit Profile Tab -->
-				<div class="tab-pane active" id="profile" role="tabpanel">
-				
-					<div class="panel-group" id="accordion">
+		<br>
+		<div class="row">
+			<div class="col-sm-3">
+				<ul class="nav nav-pills nav-stacked" role="tablist">
+					<li class="nav-item active"><a class="nav-link"
+						data-toggle="pill" href="#profile" role="tab">Profile</a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="pill"
+						href="#search" role="tab">Search Jobs</a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="pill"
+						href="#resumes" role="tab">Resumes</a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="pill"
+						href="#onewayInterview" role="tab">Record one-way interview</a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="pill"
+						href="#savedJobs" role="tab">Saved Jobs <span class="badge">5</span></a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="pill"
+						href="#appliedJobs" role="tab">Applied Jobs <span
+							class="badge">2</span></a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="pill"
+						href="#settings" role="tab">Settings</a></li>
+					<li class="nav-item"><a class="nav-link" href="index.jsp"
+						role="tab"> Logout </a></li>
+				</ul>
+			</div>
+			<div class="col-sm-8">
+				<!-- Tab panes -->
+				<div class="tab-content">
+
+					<!-- Edit Profile Tab -->
+					<div class="tab-pane active" id="profile" role="tabpanel">
+
+						<div class="panel-group" id="accordion">
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-											href="#collapse1"> Personal Details</a>
+										<a class="accordion-toggle" data-toggle="collapse"
+											data-parent="#accordion" href="#collapse1"> Personal
+											Details</a>
 									</h4>
 								</div>
 								<div id="collapse1" class="panel-collapse collapse in">
 									<div class="panel-body">
-										<form>
-										<%  Class.forName("com.mysql.jdbc.Driver");
-					 String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-					 String DB_URL="jdbc:mysql://localhost:3306/mydb";
-					 String USER = "root";
-					 String PASS = "password";
-	        Connection conn =  DriverManager.getConnection(DB_URL, USER, PASS);
-	        
-	        Statement stmt =  conn.createStatement();
-	         String sql;
-	         System.out.println("hello");
-	         System.out.println();
-	        // sql = "select * from jobseeker where username='"+request.getParameter("Username")+"' AND password='"+request.getParameter("Password")+"'";
-	       String username= (String)request.getAttribute("username");
-	       //out.print("username is "+username);
-	       sql = "select * from jobseeker where username='"+username+"'";
-	        ResultSet rs =  stmt.executeQuery(sql); 
-	       rs.next();
-	       String fname = rs.getString("fname");
-	       String lname = rs.getString("lname");
-	       String address = rs.getString("address");
-	       String email = rs.getString("email");
-	       int phone = rs.getInt("phone");
-	       
-	         
-	         %>
+										<form action="">
+											<%
+												Class.forName("com.mysql.jdbc.Driver");
+												String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+												String DB_URL = "jdbc:mysql://localhost:3306/mydb";
+												String USER = "root";
+												String PASS = "password";
+												Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+												Statement stmt = conn.createStatement();
+												String sql;
+												System.out.println("hello");
+												System.out.println();
+												// sql = "select * from jobseeker where username='"+request.getParameter("Username")+"' AND password='"+request.getParameter("Password")+"'";
+												String username = (String) request.getAttribute("username");
+												//out.print("username is "+username);
+												sql = "select * from jobseeker where username='" + username + "'";
+												ResultSet rs = stmt.executeQuery(sql);
+												rs.next();
+												String fname = rs.getString("fname");
+												String lname = rs.getString("lname");
+												String address = rs.getString("address");
+												String email = rs.getString("email");
+												int phone = rs.getInt("phone");
+											%>
 											<div class="col-sm-6">
 
 												<div class="form-group">
@@ -184,7 +193,30 @@
 									</h4>
 								</div>
 								<div id="collapse2" class="panel-collapse collapse">
-									<div class="panel-body"></div>
+									<div class="panel-body">
+									<form>
+									<div class="form-group">
+									<label for="highSchool">High School Attended:</label>
+									<input type="text" class="form-control" name="highSchool"
+										   id="highSchool">
+									</div>
+									<div class="form-group">
+									<label for="gpa">GPA:</label>
+									<input type="number" class="form-control" name="gpa"
+										   id="gpa">
+									</div>
+									<div class="form-group">
+									<label for="gpa">Undergraduate University:</label>
+									<input type="text" class="form-control" name="gpa"
+										   id="gpa">
+									</div>
+									<div class="form-group">
+									<label for="gpa">GPA:</label>
+									<input type="number" class="form-control" name="gpa"
+										   id="gpa">
+									</div>
+									</form>
+									</div>
 								</div>
 							</div>
 							<div class="panel panel-default">
@@ -196,14 +228,16 @@
 								</div>
 								<div id="collapse3" class="panel-collapse collapse">
 									<div class="panel-body">
-										<form action="">
+										<form action="InsertSkills">
 											<div class="col-sm-6">
-												<input class="form-control" type="text" placeholder="Add Skill">
-												<input type="button" class="btn btn-default" value="Add">
+												<input class="form-control" type="text"
+													placeholder="Add Skill"> <input type="button"
+													class="btn btn-default" value="Add">
 											</div>
 											<div class="col-sm-6">
-												<input class="form-control" type="text" placeholder="Delete Skill">
-												<input type="button" class="btn btn-default" value="Delete">
+												<input class="form-control" type="text"
+													placeholder="Delete Skill"> <input type="button"
+													class="btn btn-default" value="Delete">
 											</div>
 										</form>
 									</div>
@@ -237,65 +271,77 @@
 								</div>
 							</div>
 						</div>
-				</div>
-			
-				<!-- Search Jobs Tab -->
-				<div class="tab-pane" id="search" role="tabpanel">
-					<h2>Search For your Favorite Job</h2>
-					<form action="">
-						<div class="row">
-							<div class="form-group search">
-								<i class="fa fa-search" aria-hidden="true"></i> <input
-									type="text" id="keywords" name="keywords"
-									placeholder="Search for Jobs" class="form-control word">
-							</div>
-							<div class="form-group location">
-								<i class="fa fa-map-marker" aria-hidden="true"></i> <input
-									type="text" id="keywords" name="keywords"
-									placeholder="Search for Jobs" class="form-control word">
-							</div>
-							<button id='search' type="submit"
-								class="btn btn-primary search-button">Search</button>
-						</div>
-					</form>
-					<br>
-					<div class="row">
-						<div class="card" style="width: 20rem;">
-							<div class="card-block">
-								<h3 class="card-title">Special title treatment</h3>
-								<p class="card-text">With supporting text below as a natural
-									lead-in to additional content.</p>
-								<a href="#" class="btn btn-primary">Go somewhere</a>
-							</div>
-						</div>
 					</div>
-				</div>
 
-				<!-- Record / Upload Resume -->
-				<div class="tab-pane" id="resumes" role="tabpanel">
-					<!-- <div class="panel panel-default">
-						<div class="panel-heading">Record Video Resume</div>
-						<div class="panel-body"> -->
+					<!-- Search Jobs Tab -->
+					<div class="tab-pane" id="search" role="tabpanel">
+						<h2>Search For your Favorite Job</h2>
+						<form action="">
+							<div class="row">
+								<div class="form-group search">
+									<i class="fa fa-search" aria-hidden="true"></i> <input
+										type="text" id="keywords" name="keywords"
+										placeholder="Search for Jobs" class="form-control word">
+								</div>
+								<div class="form-group location">
+									<i class="fa fa-map-marker" aria-hidden="true"></i> <input
+										type="text" id="keywords" name="keywords"
+										placeholder="Search for Jobs" class="form-control word">
+								</div>
+								<button id='search' type="submit"
+									class="btn btn-primary search-button">Search</button>
+							</div>
+						</form>
+						<br>
+					</div>
+
+					<!-- Record / Upload Resume -->
+					<div class="tab-pane" id="resumes" role="tabpanel">
 						<h4>Record Video Resume</h4>
-							<video style="height: 200px;width: 200px;border: 1px solid #333;"></video>
-							  <input type="button" class="btn btn-default" onclick="onStartButtonClick()" value="Start recording">
-							  <input type="button" class="btn btn-default" onclick="onStopButtonClick()" value="Stop/Save">
-						<!-- </div>
-					</div> -->
-					<br><br>
-					<div class="panel panel-default">
-						<div class="panel-heading">Upload Resumes</div>
-						<div class="panel-body">
-								<form method="post" action="FileUploadServlet"	enctype="multipart/form-data">
-									Select file to upload: <input type="file" class="btn btn-default" name="uploadFile" />
-									<br />
-									<br /> <input type="submit" class="btn btn-default" value="Upload" />
+						<video
+							style="height: 200px; width: 200px; border: 1px solid #333;"
+							src=""></video>
+						<input type="button" class="btn btn-default"
+							onclick="onStartButtonClick()" value="Start recording"> <input
+							type="button" class="btn btn-default"
+							onclick="onStopButtonClick()" value="Stop/Save">
+						<br>
+						<br>
+						<div class="panel panel-default">
+							<div class="panel-heading">Upload Resumes</div>
+							<div class="panel-body">
+								<form method="post" action="FileUploadServlet"
+									enctype="multipart/form-data">
+									Select file to upload: <input type="file"
+										class="btn btn-default" name="uploadFile" /> <br /> <br />
+									<input type="submit" class="btn btn-default" value="Upload" />
 								</form>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="tab-pane" id="savedJobs" role="tabpanel">
-				<div class="row">
+					<div class="tab-pane" id="onewayInterview" role="tabpanel">
+						<h4>Record One Way Interview</h4>
+						<video
+							style="height: 200px; width: 200px; border: 1px solid #333;" class="oneWayInterviewVideo"
+							src=""></video>
+						<input type="button" class="btn btn-default"
+							onclick="onStartButtonClick2()" value="Start recording"> <input
+							type="button" class="btn btn-default"
+							onclick="onStopButtonClick2()" value="Stop/Save">
+						<div class="panel panel-default">
+							<div class="panel-heading">Upload One Way Interview</div>
+							<div class="panel-body">
+								<form method="post" action="uploadOneWayInterview"
+									enctype="multipart/form-data">
+									Select file to upload: <input type="file"
+										class="btn btn-default" name="uploadFile" /> <br /> <br />
+									<input type="submit" class="btn btn-default" value="Upload" />
+								</form>
+							</div>
+						</div>						
+					</div>
+					<div class="tab-pane" id="savedJobs" role="tabpanel">
+						<div class="row">
 							<div class="card">
 								<div class="card-block">
 									<h3 class="card-title">
@@ -342,9 +388,9 @@
 								</div>
 							</div>
 						</div>
-				</div>
-				<div class="tab-pane" id="appliedJobs" role="tabpanel">
-				<div class="row">
+					</div>
+					<div class="tab-pane" id="appliedJobs" role="tabpanel">
+						<div class="row">
 							<div class="card">
 								<div class="card-block">
 									<h3 class="card-title">
@@ -364,104 +410,22 @@
 								</div>
 							</div>
 						</div>
+					</div>
+					<div class="tab-pane" id="settings" role="tabpanel">Settings</div>
+					<div class="tab-pane" id="logout" role="tabpanel">Logout</div>
 				</div>
-				<div class="tab-pane" id="settings" role="tabpanel">Settings</div>
-				<div class="tab-pane" id="logout" role="tabpanel">Logout</div>
+
 			</div>
-
+			<div class="col-sm-1"></div>
 		</div>
-		<div class="col-sm-1"></div></div>
 	</div>
-	<script>
-		var buffer = [], recorder, video = document.querySelector("video");
-
-		function onStartButtonClick() {
-			var items = navigator.userAgent.match(/Chrome\/(\d+)/) || [];
-			if (items[1] <= 47)
-				return alert("This demo works only in Google Chrome v48+.");
-
-			navigator.webkitGetUserMedia({
-				audio : true,
-				video : true
-			}, onStreamGetSuccess, onStreamGetFailure);
-		}
-
-		// triggered by user.
-		function onStopButtonClick() {
-			try {
-				recorder.stop();
-				recorder.stream.getTracks().forEach(function(track) {
-					track.stop();
-				});
-			} catch (e) {
-			}
-
-			bufferToDataUrl(function(dataUrl, blob) {
-				// upload file to the server
-				var file = dataUrlToFile(dataUrl);
-				console.log(file);
-
-				// or just download it.
-				var url = URL.createObjectURL(blob), el = document
-						.createElement("a");
-
-				document.body.appendChild(el);
-				el.style = "display:none";
-				el.href = url;
-				el.download = "video.webm";
-				el.click();
-				URL.revokeObjectURL(url);
-			});
-
-		}
-
-		function onStreamGetSuccess(stream) {
-			video.src = window.URL.createObjectURL(stream);
-
-			recorder = new MediaRecorder(stream);
-			// will be called each time we get data from stream.
-			recorder.ondataavailable = onDataAvailable;
-			recorder.start();
-		}
-
-		function onStreamGetFailure() {
-			alert("Can't get video-stream");
-		}
-
-		function onDataAvailable(e) {
-			if (e.data)
-				buffer.push(e.data);
-		}
-
-		// returns file, that we can send to the server.
-		function dataUrlToFile(dataUrl) {
-			var binary = atob(dataUrl.split(',')[1]), data = [];
-
-			for (var i = 0; i < binary.length; i++)
-				data.push(binary.charCodeAt(i));
-
-			return new File([ new Uint8Array(data) ], 'recorded-video.webm', {
-				type : 'video/webm'
-			});
-		}
-
-		function bufferToDataUrl(callback) {
-			var blob = new Blob(buffer, {
-				type : "video/webm"
-			});
-
-			var reader = new FileReader();
-			reader.onload = function() {
-				callback(reader.result, blob);
-			};
-			reader.readAsDataURL(blob);
-		}
-	</script>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"
 		type="text/javascript"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 		type="text/javascript"></script>
+	<script src="js/videoRecorder1.js" ></script>
+	<script src="js/videoRecorder2.js" ></script>
 </body>
 </html>
